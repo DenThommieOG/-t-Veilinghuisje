@@ -1,0 +1,1 @@
+<img src="../logo 't veilinghuisje.png" alt="logo" class="{{ $classes }}">

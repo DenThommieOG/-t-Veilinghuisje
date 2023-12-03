@@ -1,0 +1,33 @@
+nav {
+    height: 6rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
+}
+
+.logo-nav {
+    height: 5.5rem;
+}
+
+a img {
+    border: none;
+    display: block;
+}
+a:last-of-type{
+    margin-right: 2rem;
+    margin-left: auto;
+}
+
+nav div {
+    height: 100%;
+    width: 4rem;
+}
+
+nav a {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}

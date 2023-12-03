@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuctionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//veiling route
+Route::get('/', [AuctionController::class, 'index'])->name('homepage');
+
+//user routes
+Route::get('/login', [UserController::class, 'loginForm'])->name('login-form');
+Route::post('/login', [UserController::class, 'login'])->name('login');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');

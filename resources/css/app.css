@@ -1,0 +1,13 @@
+@import './header.css';
+@import './user-managment.css';
+
+body {
+    background-color: lightgray;
+    margin: 0px;
+}
+main{
+    margin: 2rem 10rem;
+}
+.block{
+    display: block;
+}
