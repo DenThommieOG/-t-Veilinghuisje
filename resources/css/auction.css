@@ -1,0 +1,24 @@
+.title-block{
+    display: flex;
+    justify-content: space-between;
+}
+.flex{
+    display: flex;
+    gap: 1rem;
+}
+.button{
+    text-decoration: none; 
+    color: white;
+    background-color: brown;
+    padding: 10px 25px;
+    max-height: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    align-self: center;
+}
+.auction-block{
+    display: flex;
+    justify-content: space-between;
+}

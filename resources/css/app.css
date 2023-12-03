@@ -1,5 +1,7 @@
 @import './header.css';
 @import './user-managment.css';
+@import './auction.css';
+@import './form.css';
 
 body {
     background-color: lightgray;

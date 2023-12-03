@@ -5,7 +5,14 @@
     <a href="{{ route('homepage') }}" class="button">
         Startpagina
     </a>
+
+    <a href="{{ route('homepage') }}" class="button">
+        De volgende Veiling
+    </a>
     @auth
+        <a href="{{ route('auction.list') }}" class="button">
+            Veilinglijst
+        </a>
         <a href="{{ route('logout') }}" class="button">
             Uitloggen
         </a>
