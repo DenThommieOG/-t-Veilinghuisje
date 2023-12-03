@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuctionController;
 
@@ -21,6 +22,9 @@ Route::get('/auction/list', [AuctionController::class, 'list'])->name('auction.l
 Route::get('/auction/create', [AuctionController::class, 'create'])->name('auction.create');
 Route::post('auction/store', [AuctionController::class, 'store'])->name('auction.store');
 
+// veiling\items routes
+Route::get('/auction/item/create/{id}', [ItemController::class, 'create'])->name('item.create');
+Route::post('/auction/items/store', [ItemController::class, 'store'])->name('item.store');
 
 //user routes
 Route::get('/login', [UserController::class, 'loginForm'])->name('login-form');

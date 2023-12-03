@@ -8,7 +8,7 @@
                 <h3>{{ $auction->name }}</h3>
                 <div class="flex">
                 <a href="#" class="button show">Veiling bekijken</a>
-                <a href="#" class="button add">Item toevoegen</a>
+                <a href="{{ route('item.create', ['id' => $auction->id]) }}" class="button add">Item toevoegen</a>
                 <a href="#" class="button delete">Veiling verwijderen</a>
             </div>
             </div>
