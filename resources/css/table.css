@@ -1,0 +1,15 @@
+.table-page{
+    width: 100%;
+}
+.table-page thead tr td{
+    padding-left: 0px;
+}
+.table-page tbody tr td{
+    display: table-cell;
+    vertical-align: inherit;
+    text-align: center;
+}
+td, th{
+    
+  border-bottom: 1px solid;border-right: 1px solid;
+}

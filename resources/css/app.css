@@ -1,15 +1,57 @@
 @import './header.css';
+@import './footer.css';
 @import './user-managment.css';
 @import './auction.css';
 @import './form.css';
+@import './item.css';
+@import './table.css';
 
 body {
-    background-color: lightgray;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ac9881;
     margin: 0px;
+    font-family: sans-serif;
+    line-height: 1.75rem;
+    color: white;
+    text-wrap: wrap;
 }
 main{
     margin: 2rem 10rem;
 }
 .block{
     display: block;
+}
+
+.flex{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.title-block{
+    display: flex;
+    justify-content: space-between;
+}
+.px-1{
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+#delete-button{
+    display: inline;
+    max-height: none;
+
+}
+.button{
+    text-decoration: none; 
+    color: white;
+    background-color: #B64B41;
+    padding: 10px 25px;
+    max-height: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    align-self: center;
 }

@@ -1,0 +1,14 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #715F52;
+    margin-top: auto;
+}
+footer p{
+    
+    padding: 4px;
+}
+footer p+p{
+    border-left: 5px solid #B64B41 ;
+}
