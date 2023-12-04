@@ -18,8 +18,7 @@ class Auction extends Model
     }
     public function getFeaturedItems()
     {
-        $auction = $this->where('end_time', '>', now()->toDateTimeLocalString())->orderBy('end_time')->first();
-
+        $auction = $this;
         $feauturedItems = Item::where('auction_id', $auction->id)->where('is_feature', true)->get();
         if ($feauturedItems->count() < 3) {
             $allItems = Item::where('auction_id', $auction->id)->inRandomOrder()->get();

@@ -6,7 +6,7 @@
             <a href="{{ route('auction.show', ['id' => $auction->id]) }}" class="button show">Veiling bekijken</a>
             @endif
             @if (Auth()->id() != null &&
-                    auth()->user()->hasRole('admin'))
+                    auth()->user()->hasRole('admin') && $auction->end_date >  now()->toDateTimeLocalString())
                 <a href="{{ route('item.create', ['id' => $auction->id]) }}" class="button add">Item toevoegen</a>
                 <a href="#" class="button delete">Veiling verwijderen</a>
             @endif

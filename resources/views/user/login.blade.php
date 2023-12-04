@@ -15,7 +15,7 @@
 <div class="login-form">
     <div>
         <x-logo classes='logo-center'></x-logo>
-        <form method="POST" action="{{ route('login') }}" class="login-card">
+        <form method="POST" action="{{ route('login') }}" class="login-card fill-form">
             @csrf
             <label for="email">Email</label>
             @if ($errors && $errors->has('email'))

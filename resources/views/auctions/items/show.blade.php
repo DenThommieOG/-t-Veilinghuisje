@@ -7,6 +7,8 @@
                 <h3>{{ $item->description }}</h3>
             </div>
             <div>
+                @if ($item->auction->end_date >  now()->toDateTimeLocalString())
+                    
                 <h4>Bieden:</h4>
                 @if ($lastBid)
                     <h5>Uw laatste bod op dit lot was: {{ $lastBid->value }} euro</h5>
@@ -22,6 +24,7 @@
                 @else
                     <p>Om te bieden moet u aangemeld zijn, heeft u nog geen accont? regristreren is volledig gratis</p>
                 @endauth
+                @endif
             </div>
         </div>
     </div>

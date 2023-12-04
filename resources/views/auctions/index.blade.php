@@ -11,6 +11,10 @@
     <div class="title-block">
         <h2>De volgende veiling</h2>
     </div>
+    @if ($auction)
     <x-auction :auction=$auction></x-auction>
+    @else
+    Er staat momenteel geen veiling gepland, kom later nog eens kijken!
+    @endif
 
 </x-app-layout>
