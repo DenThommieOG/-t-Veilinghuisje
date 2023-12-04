@@ -2,7 +2,7 @@
     <div class="title-block">
         <h1>Maak een veiling</h1>
     </div>
-    <form action="{{ route('auction.store') }}" method="post">
+    <form action="{{ route('auction.store') }}" class="fill-form" method="post">
         @csrf
 
         <label for="name">Naam/ nummer veiling</label>

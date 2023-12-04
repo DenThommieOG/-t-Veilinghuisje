@@ -11,7 +11,9 @@ class AuctionController extends Controller
 
     public function index()
     {
-        return view('auctions.index');
+        return view('auctions.index', [
+            'auction' => Auction::where('end_time', '>', now()->toDateTimeLocalString())->orderBy('end_time')->first(),
+        ]);
     }
 
     public function list()
@@ -38,12 +40,23 @@ class AuctionController extends Controller
             ]);
         }
 
-        $auction = Auction::create([
+        Auction::create([
             'name' => $validated['name'],
             'description' => $validated['description'],
             'start_time' => $validated['startDate'],
             'end_time' => $validated['endDate']
         ]);
         return redirect()->route('auction.list');
+    }
+    public function show($id = '')
+    {
+        if ($id == null) {
+            $auction = Auction::where('end_time', '>', now()->toDateTimeLocalString())->orderBy('end_time')->first();
+        } else {
+            $auction = Auction::where('id', $id)->first();
+        }
+        return view('auctions.show', [
+            'auction' => $auction
+        ]);
     }
 }
