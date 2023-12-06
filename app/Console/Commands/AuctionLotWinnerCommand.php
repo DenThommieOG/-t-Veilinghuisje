@@ -47,6 +47,7 @@ class AuctionLotWinnerCommand extends Command
             }
             $auction->winners_selected = 1;
             $auction->save();
+            $auction->delete();
         }
     }
 }
