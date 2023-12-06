@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Mail;
 
 class BidController extends Controller
 {
+    /**
+     * Slaag een nieuw bod op
+     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -25,6 +28,10 @@ class BidController extends Controller
 
         return redirect()->route('homepage');
     }
+
+    /**
+     * Toon alle biedingen van een gebruiker
+     */
     public function show()
     {
         return view('auctions.bids.show', [

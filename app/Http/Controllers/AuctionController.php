@@ -49,6 +49,7 @@ class AuctionController extends Controller
      */
     public function store(Request $request)
     {
+        //Valiodatie
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
@@ -69,6 +70,10 @@ class AuctionController extends Controller
         ]);
         return redirect()->route('auction.list');
     }
+
+    /**
+     * Toon geselecteerde auction, indien niet geselecteerd, selecteer de eerst komende auction
+     */
     public function show($id = '')
     {
         if ($id == null) {

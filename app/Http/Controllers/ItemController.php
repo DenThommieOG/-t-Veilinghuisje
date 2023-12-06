@@ -11,16 +11,21 @@ use Illuminate\Validation\Rules\File;
 
 class ItemController extends Controller
 {
-    //
-
+    /**
+     * Aanmaak formulier van een item voor een specifieke auction
+     */
     public function create($id)
     {
         return view('auctions.items.create', [
             'auction' => Auction::find($id),
         ]);
     }
+    /**
+     * Slaag een item op
+     */
     public function store(Request $request)
     {
+        //Validatie
         $validated = $request->validate([
             'auctionId' => 'required|integer',
             'name' => 'required|string|max:255',
@@ -28,6 +33,7 @@ class ItemController extends Controller
             'photo' => 'required', File::image()
         ]);
 
+        //Bestand opslaan (vergeet geen storage:link te proberen indien bestand opslaan niet werkt)
         $filePath = $request->file('photo')->store('photos', 'public');
         Storage::setVisibility($filePath, 'public');
 
@@ -42,6 +48,9 @@ class ItemController extends Controller
 
         return redirect()->route('auction.list');
     }
+    /**
+     * Toon item detailpagina, met indien beschikbaar, het laatste bod
+     */
     public function show($id)
     {
         return view('auctions.items.show', [
@@ -49,12 +58,19 @@ class ItemController extends Controller
             'lastBid' => Bid::where('item_id', $id)->where('user_id', Auth()->id())->orderBy('created_at')->first(),
         ]);
     }
+
+    /**
+     * Bewerk formulier bestaand item
+     */
     public function edit($id)
     {
         return view('auctions.items.edit', [
             'item' => Item::find($id),
         ]);
     }
+    /**
+     * Update een bestaand item
+     */
     public function update(Request $request)
     {
         $validated = $request->validate([
@@ -77,6 +93,10 @@ class ItemController extends Controller
 
         return redirect()->route('auction.list');
     }
+
+    /**
+     * Verwijder een item
+     */
     public function destroy(Item $item)
     {
         $auctionId = $item->auctionId;
