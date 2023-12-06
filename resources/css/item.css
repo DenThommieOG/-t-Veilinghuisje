@@ -2,3 +2,10 @@
     max-width: 600px;
     max-height: 400px;
 }
+.winner{
+    color: green;
+}
+.bid+.bid{
+    border-left: 5px solid #B64B41;
+    padding: 0rem 1rem;
+}

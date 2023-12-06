@@ -20,6 +20,8 @@ use App\Http\Controllers\BidController;
 //veiling routes
 Route::get('/', [AuctionController::class, 'index'])->name('homepage');
 Route::get('/auction/list', [AuctionController::class, 'list'])->name('auction.list');
+
+Route::get('/auction/archive', [AuctionController::class, 'archive'])->name('auction.archive');
 Route::get('/auction/create', [AuctionController::class, 'create'])->name('auction.create')->middleware('checkRole:admin');
 Route::post('auction/store', [AuctionController::class, 'store'])->name('auction.store')->middleware('checkRole:admin');
 Route::get('/auction/show/{id?}', [AuctionController::class, 'show'])->name('auction.show');

@@ -34,6 +34,7 @@
         <table class="table-page">
             <thead>
                 <tr>
+                    <th scope="col"></th>
                     <th scope="col">Bod</th>
                     <th scope="col">Gebruiker</th>
                     <th scope="col">Aanmaakdatum</th>
@@ -42,6 +43,7 @@
             <tbody>
                 @foreach ($item->bids as $bid)
                     <tr>
+                        <td><span class="winner">{{ $bid->is_winner == 1? 'Winnend bod' : '' }}</span></td>
                         <td>{{ $bid->value }}</td>
                         <td>{{ $bid->user->email }}</td>
                         <td>{{ $bid->created_at }}</td>
