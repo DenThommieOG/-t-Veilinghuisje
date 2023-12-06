@@ -9,23 +9,44 @@ use Illuminate\Support\Facades\Auth;
 class AuctionController extends Controller
 {
 
+    /**
+     * Startpagina waar de eerst volgende veiling wordt getoond
+     */
     public function index()
     {
         return view('auctions.index', [
             'auction' => Auction::where('end_time', '>', now()->toDateTimeLocalString())->orderBy('end_time')->first(),
         ]);
     }
-
+    /**
+     * Lijst pagina waar alle auctions worden getoond samen met een aantal items
+     */
     public function list()
     {
         return view('auctions.list', [
             'auctions' => Auction::get(),
         ]);
     }
+
+    /**
+     * Archief pagina waar alle afgelopen auctions worden getoond samen met een aantal items
+     */
+    public function archive()
+    {
+        return view('auctions.list', [
+            'auctions' => Auction::onlyTrashed()->get(),
+        ]);
+    }
+    /**
+     * Aanmaak formulier
+     */
     public function create()
     {
         return view('auctions.create');
     }
+    /**
+     * Slaag nieuwe auction op
+     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -53,7 +74,7 @@ class AuctionController extends Controller
         if ($id == null) {
             $auction = Auction::where('end_time', '>', now()->toDateTimeLocalString())->orderBy('end_time')->first();
         } else {
-            $auction = Auction::where('id', $id)->first();
+            $auction = Auction::withTrashed()->find($id);
         }
         return view('auctions.show', [
             'auction' => $auction
