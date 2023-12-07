@@ -3,7 +3,7 @@
     <div class="item-text">
         <div class="px-1">
             <p>{{ $item->name }}</p>
-            <p>{{ $item->description }}</p>
+            <p>{{ Str::substr($item->description, 0, 80) }}{{ Str::length($item->description) > 150? '...':'' }}</p>
         </div>
         <div class="buttons-item">
             @if ($item->deleted_at != null)

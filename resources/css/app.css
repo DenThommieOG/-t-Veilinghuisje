@@ -27,6 +27,8 @@ main{
 .flex{
     display: flex;
     gap: 1rem;
+}
+.flex-wrap{
     flex-wrap: wrap;
 }
 .title-block{
@@ -54,4 +56,5 @@ main{
     border-bottom-left-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
     align-self: center;
+    cursor: pointer;
 }

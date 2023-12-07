@@ -1,6 +1,6 @@
 <footer>
     <h2 class="center">Contactgegevens</h2>
-    <div class="flex">
+    <div class="flex flex-wrap">
         <p>
         tel:+32 (0) 493945479</p>
         <p>Email: tveilinghusje@gmail.com</p>

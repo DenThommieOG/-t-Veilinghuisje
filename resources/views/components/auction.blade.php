@@ -1,7 +1,7 @@
 <div>
     <div class="auction-block">
         <h3>{{ $auction->name }}</h3>
-        <div class="flex">
+        <div class="flex flex-wrap">
             @if (!request()->routeIs('auction.show'))
             <a href="{{ route('auction.show', ['id' => $auction->id]) }}" class="button show">Veiling bekijken</a>
             @endif
@@ -13,7 +13,7 @@
         </div>
     </div>
     <p>{{ $auction->description }}</p>
-    <div class="flex">
+    <div class="flex flex-wrap">
         @if (request()->routeIs('auction.show'))
             @foreach ($auction->items as $item)
             <x-item :item=$item></x-item>

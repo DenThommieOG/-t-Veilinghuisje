@@ -1,7 +1,11 @@
 .item-large{
     max-width: 600px;
     max-height: 400px;
+    min-width: 400px;
+    min-height: 300px;
+    object-fit: cover;
 }
+
 .winner{
     color: green;
 }

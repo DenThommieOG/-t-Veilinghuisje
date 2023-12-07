@@ -40,23 +40,4 @@
     color: red;
     margin-top: 0rem;
 }
-.div-input-remove{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-.input-with-remove{
-    position: relative;
-    width: 100%;
-}
-/*Plaats remove button in item box*/
-.remove-in-input{
-    position: absolute;
-    margin-right: 2rem;
-    background-color: transparent;
-    border: none;
-    top: -1px;
-    height: 10px;
-    width: 10px;
-}
+

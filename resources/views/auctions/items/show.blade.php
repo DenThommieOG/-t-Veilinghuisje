@@ -4,26 +4,26 @@
         <div>
             <div class="px-1">
                 <h2>{{ $item->name }}</h2>
-                <h3>{{ $item->description }}</h3>
+                <p>{{ $item->description }}</p>
             </div>
             <div>
-                @if ($item->auction->end_date >  now()->toDateTimeLocalString())
+                @if ($item->auction->end_time >  now()->toDateTimeLocalString())
                     
                 <h4>Bieden:</h4>
                 @if ($lastBid)
                     <h5>Uw laatste bod op dit lot was: {{ $lastBid->value }} euro</h5>
                 @endif
-                @auth
+                @if(Auth()->user())
                     <form action="{{ route('bid.store') }}" method="post">
                         @csrf
                         <label for="value">Geef uw bod in</label>
                         <input type="hidden" name="itemId" value="{{ $item->id }}">
                         <input type="number" name="value" id="value">
-                        <button type="submit">Bod plaatsen</button>
+                        <button type="submit" class="button" id="delete-button">Bod plaatsen</button>
                     </form>
                 @else
                     <p>Om te bieden moet u aangemeld zijn, heeft u nog geen accont? regristreren is volledig gratis</p>
-                @endauth
+                    @endif
                 @endif
             </div>
         </div>

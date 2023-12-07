@@ -34,6 +34,7 @@ class AuctionController extends Controller
     public function archive()
     {
         return view('auctions.list', [
+            'winnerWillBeSelectedAuctions' => Auction::where('end_time', '<', now()->toDateTimeLocalString())->where('is_closed_for_selection', 0)->where('winners_selected', 0)->orderBy('end_time')->get(),
             'auctions' => Auction::onlyTrashed()->get(),
         ]);
     }

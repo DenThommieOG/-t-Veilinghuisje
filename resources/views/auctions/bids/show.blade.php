@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="flex">
+    <div class="flex flex-wrap">
     @foreach ($bids as $bid)
     <div class="bid">
         <x-item :item="$bid->item"></x-item>
